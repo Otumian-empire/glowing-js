@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>section 5 - Objects and functions</title>
+</head>
+<body>
+    <h1>JavaScript Function Prototypes</h1>
+    <script>
+        console.log("hello");
+
+        
+        /* 
+        // call method - to borrow a method from another object
+
+        var john = {
+            name: "john",
+            age: 25,
+            print: function (employed, married) {
+                console.log(this.name + " is my name and I'm " + this.age + " years old.\nI'm " + (employed? "employed": "not employed") + " but " + (married? "married": "single"));
+            }
+        };
+
+        john.print(true, false);
+
+        var mary = {
+            name: "Mary",
+            age: 32
+        };
+        // mary.print(true); we will borrow print from john instead
+        john.print.call(mary, false, true);
+
+        // using the bind approach
+        // this will create a copy of the method but with a preset parameter
+        // the bind method returns a value
+        var maryPrintMarried = john.print.bind(mary, false);
+
+        maryPrintMarried(false);
+
+        // we have look at a function below and we shall modify it
+
+        // passing a function as a parameter
+        function arrayCalc(arr, fn) {
+            var resArr = [];
+
+            for (var i = 0; i < arr.length; ++i) {
+                resArr.push(fn(arr[i]));
+            }
+
+            return resArr;
+        }
+
+        // call back functions
+        function calcAge(year) {
+            return 2019 - year;
+        }
+
+        // in this call back function we shall add a preset param to it using the bind method
+        function fullAge(limit, year) {
+            return year >= limit;
+        }
+
+        var years = [1989, 1998, 1994, 2013, 1996];
+
+        var ages = arrayCalc(years, calcAge)
+        console.log(ages);
+
+        var matured = arrayCalc(ages, fullAge.bind(this, 18));
+        console.log(matured);
+
+        // output the bind on the fullAge
+        console.log("fullAge.bind(this, 18): " + fullAge.bind(this, 19)(32))
+        
+ */        /*
+        //  closure
+        // inner functions have access to properties of outer function
+        // try to use only one function
+
+        function interViewQuestion(job) {
+            // question for designer
+            var desQue = ", What is Ux design?";
+            // question for teacher
+            var teaQue = ", what do you teach?";
+            // question for others
+            var otherQue = ", what do you do?";
+
+            return function (name) {
+                if (job === "designer") {
+                    console.log(name + desQue);
+                } else if (job === "teacher") {
+                    console.log(name + teaQue);
+                } else {
+                    console.log(name + otherQue)
+                }
+            }
+        }
+
+        interViewQuestion("teacher")("Otu");
+        interViewQuestion("designer")("Otu");
+        interViewQuestion("carpenter")("Otu");
+        */
+        /*
+        // IIFE
+        // intermediately invoked function expression
+
+        function game() {
+            var score = (Math.round(Math.random()) * 10) + 1
+
+            console.log(score >= 5);
+        }
+
+        // game();
+
+        (function(factor) {
+            var score = (Math.round(Math.random()) * 10) + 1
+                console.log((score + factor)>= 5);
+            }
+        )(2);
+
+        // console.log(score);
+
+        */
+        /* 
+        function x(params) {
+            return params + 1;
+        }
+
+        var y = x(1)
+
+        console.log(y);
+        // returning anonymous function
+        function developer(devType) {
+            if (devType === "front-end") {
+                return function(favTool) {
+                    console.log("your front-end favorite tool is " + favTool);
+                }
+            } else if (devType === "back-end") {
+                return function(favTool) {
+                    console.log("your back-end favorite tool is " + favTool);
+                }
+            } else {
+                return function(favTool) {
+                    console.log("Hello full stack developer..\n" + "we like " + favTool + " too");
+                }
+            }
+        }
+
+        var feFav = developer("front-end");
+        feFav("javaScript");
+
+        var beFav = developer("back-end");
+        beFav("Node.js");
+        
+        var fsFav = developer("full-stack");
+        fsFav("javascript and php"); */
+
+
+        /*     
+        // passing a function as a parameter
+        function arrayCalc(arr, fn) {
+            var resArr = [];
+
+            for (var i = 0; i < arr.length; ++i) {
+                resArr.push(fn(arr[i]));
+            }
+
+            return resArr;
+        }
+
+        // call back functions
+        function calcAge(year) {
+            return 2019 - year;
+        }
+
+        function fullAge(year) {
+            return year >= 18;
+        }
+
+        var years = [1889, 1998, 1978, 2013, 1996];
+
+        var ages = arrayCalc(years, calcAge)
+        console.log(ages);
+
+        var matured = arrayCalc(ages, fullAge);
+        console.log(matured);
+        */        
+        /*         
+        var personProto = {
+            sayName : function() {
+                console.log("name: " + this.name);
+            }
+        }
+
+        var john = Object.create(personProto);
+        john.name = "John";
+        john.sayName();
+        john.isMarried = function(e) {
+            console.log(this.name + " is " + (e? "married happily":"fucking a single dude"));
+        }
+
+        john.isMarried(true);
+        john.isMarried(false);
+        var mic = Object.create(personProto, 
+        {
+            name: {value: "Michael"},
+            age : {value: 24},
+            sayAge: {value: function() {
+                console.log("age: " + this.age);
+            }}
+        });
+        mic.sayName();
+        mic.sayAge();
+        */
+
+
+
+        /* var Person = function(name, job, dateOfBirth) {
+            this.name = name;
+            this.job = job;
+            this.dateOfBirth = dateOfBirth;
+            this.print = function() {
+                console.log("name: " + this.name);
+                console.log("job: " + this.job);
+                console.log("date of birth: " + this.dateOfBirth);
+            }   
+        }
+
+        Person.prototype.lastname = "lastName";
+
+        Person.prototype.sex = function(sex){
+            this.sex = sex;
+            console.log(this.name + " is a " + (this.sex == "m"? "male" : "female"));
+        }
+
+    
+        var mic = new Person("michael Otu", "teacher", 1234);
+        mic.print();
+        mic.sex("m");
+        mic.lastname = "Ghanan";
+
+        console.log(mic.name + " " + mic.lastname); */
+        console.log("\nbye");
+    </script>
+</body>
+</html>

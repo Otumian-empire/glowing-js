@@ -1,0 +1,75 @@
+<!Doctype html>
+<html>
+    <head>
+        <meta charset="utf-8">
+    </head>
+    <body>
+        <div>
+            <p> Hello world </p>
+        </div>
+    </body>
+    <script>
+        /*
+        // Taking Mark's mass and height
+        var markMass = Number(prompt('Enter mark\'s mass: '));
+        var markHeight = Number(prompt('Enter mark\'s height: '));
+        
+        // Taking John's mass and height
+        var johnMass = Number(prompt('Enter john\'s mass: '));
+        var johnHeight = Number(prompt('Enter john\'s height: '));
+        
+        // Calculating the individual BMI
+        var markBMI = markMass / (markHeight * markHeight);
+        var johnBMI = johnMass / (johnHeight * johnHeight);
+        
+        // checking who has the hiher BMI
+        var isMarkheavier = markBMI > johnBMI;
+        console.log(markBMI, johnBMI);
+        console.log("Mark is heavier than john", isMarkheavier);
+        */
+        
+        // this is an an array
+        // We access the elements using the array index
+        
+        // index           0        1     2   3   4        5
+        // var profile = ['michael', 'otu', 12, 1.3, 23, 'programmer'];
+        /*
+        for (var i = 0; i < profile.length; ++i) {
+            console.log(profile[i] + ' has an index of ' + profile.indexOf(profile[i]));
+        }
+        */
+        // console.log(profile);
+        
+        // this is an object
+        // we can use the element name
+        /*var prof = {
+            firstName: "michael",
+            lastName: "otu",
+            age: 12,
+            height: 1.3,
+            weight: 24,
+            job: 'programmer',
+            family: ['jeff', 'isaac', 'samloko']
+        };
+        
+        console.log(prof['firstName']);
+        console.log(prof.firstName);
+        console.log(prof.family);
+        console.log(prof);*/
+        
+        /*var obj = new Object();
+        
+        obj.name = "Isaac";
+        obj.age = 12;
+        obj.school = "apenkwa";
+        
+        console.log(obj);
+        */
+        
+         var profile = ['michael', 'otu', 12, 1.3, 23, 'programmer'];
+        
+        for (var i = profile.length - 1; i >= 0; --i) {
+            console.log(profile[i] + ' has an index of ' + profile.indexOf(profile[i]));
+        }
+    </script>
+</html>
